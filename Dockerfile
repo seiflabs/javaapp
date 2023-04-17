@@ -6,7 +6,7 @@ RUN apt-get update &&
 
  
 
-WORKDIR /app
+WORKDIR /javaapp
 
 
 COPY . .
