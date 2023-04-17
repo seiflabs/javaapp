@@ -1,22 +1,6 @@
 FROM openjdk:11-jdk
-
- 
-
-RUN apt-get update && \
-    apt-get install -y maven
-
- 
-
 WORKDIR /app
-
- 
-
+RUN apt-get update
 COPY . .
-
- 
-
-RUN mvn clean install
-
- 
-
+EXPOSE 3000
 CMD ["java", "-jar", "target/login-1.0-SNAPSHOT.jar"]
