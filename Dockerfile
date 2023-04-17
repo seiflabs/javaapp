@@ -1,9 +1,14 @@
-FROM openjdk:11-ea-11-jre
+# Utilisez une image de base Java 11
+FROM openjdk:11
 
-COPY target/login-1.0-SNAPSHOT.jar /app/app.jar
-
+# Définissez le répertoire de travail
 WORKDIR /app
 
-CMD["java", "-jar", "app.jar"]
+# Ajoutez les fichiers de votre application Java dans le conteneur
+COPY target/login-1.0-SNAPSHOT.jar /app/app.jar
 
-EOF
+# Exposez le port sur lequel votre application Java s'exécute
+EXPOSE 8081
+
+# Démarrez l'application Java lors du lancement du conteneur
+CMD ["java", "-jar", "app.jar"]
